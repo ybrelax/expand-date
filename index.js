@@ -1,7 +1,7 @@
 /**
  * @param fmt  格式化类型
  */
-Date.prototype.format = function(fmt) {
+Date.prototype.format = function(fmt = "yyyy-MM-dd") {
     var o = {
       "M+": this.getMonth() + 1, //月份
       "d+": this.getDate(), //日
@@ -28,7 +28,7 @@ Date.prototype.format = function(fmt) {
       }
     }
     return fmt;
-  };
+};
   
 /**
  * 增加天数
