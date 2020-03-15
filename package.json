@@ -1,19 +1,24 @@
 {
   "name": "@ybrelax/date",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "mocha --reporter spec"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ybrelax/expand-date.git"
   },
-  "author": "",
+  "author": "ybrelax",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ybrelax/expand-date/issues"
   },
-  "homepage": "https://github.com/ybrelax/expand-date#readme"
+  "homepage": "https://github.com/ybrelax/expand-date#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.0"
+  }
 }
