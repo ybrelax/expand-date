@@ -53,6 +53,20 @@ Date.prototype.getCurrMonthLast = function () {
     return new Date(nextMonthFirstDay - oneDay);
 };
 /**
+ * 获取上月第一天
+ */
+Date.prototype.getLastMonthFirst = function () {
+    return new Date(this.getFullYear(), this.getMonth() - 1, 1);
+};
+/**
+ * 获取上个月最后一天
+ */
+Date.prototype.getLastMonthLast = function () {
+    var date = new Date();
+    var day = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+    return new Date(new Date().getFullYear(), new Date().getMonth() - 1, day);
+};
+/**
  * 获取当周的第一天
  */
 Date.prototype.getCurrWeekFirst = function () {

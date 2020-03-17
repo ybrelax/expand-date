@@ -5,6 +5,8 @@ interface Date {
   getCurrMonthLast: () => Date;
   getCurrWeekFirst: () => Date;
   getCurrWeekLast: () => Date;
+  getLastMonthFirst: () => Date;
+  getLastMonthLast: () => Date;
 }
 
 /**
@@ -69,6 +71,22 @@ Date.prototype.getCurrMonthLast = function() {
   const oneDay = 1000 * 60 * 60 * 24;
   return new Date(nextMonthFirstDay - oneDay);
 };
+
+/**
+ * 获取上月第一天
+ */
+Date.prototype.getLastMonthFirst = function() {
+  return new Date(this.getFullYear(), this.getMonth()-1, 1);
+};
+/**
+ * 获取上个月最后一天
+ */
+Date.prototype.getLastMonthLast = function() {
+  const date = new Date();
+  const day = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+  return new Date(new Date().getFullYear(), new Date().getMonth()-1, day);
+};
+
 
 
 /**

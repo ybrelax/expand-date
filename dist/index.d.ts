@@ -5,4 +5,6 @@ interface Date {
     getCurrMonthLast: () => Date;
     getCurrWeekFirst: () => Date;
     getCurrWeekLast: () => Date;
+    getLastMonthFirst: () => Date;
+    getLastMonthLast: () => Date;
 }
