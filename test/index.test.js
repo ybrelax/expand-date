@@ -25,8 +25,8 @@ const expect = require('chai').expect;
 
 describe('测试 周历设置项 ', () => {
   it('should return 2020-03-17', () => {
-    new Date().setWeekStartEnd(2);
-    const result = new Date().getCurrMonthFirst().format();
+    new Date().setWeekStart(2);
+    const result = new Date().getCurrWeekFirst().format();
     expect(result).to.equal('2020-03-17');
   });
 });

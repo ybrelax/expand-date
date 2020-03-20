@@ -7,6 +7,6 @@ interface Date {
     getCurrWeekLast: () => Date;
     getLastMonthFirst: () => Date;
     getLastMonthLast: () => Date;
-    setWeekStartEnd: (start: number) => void;
+    setWeekStart: (start: number) => void;
 }
 declare let startWeek: number;

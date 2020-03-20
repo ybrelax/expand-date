@@ -73,43 +73,30 @@ Date.prototype.getLastMonthLast = function () {
  */
 Date.prototype.getCurrWeekFirst = function () {
     var weekday = this.getDay() || 7;
-   
-    if (startWeek === 1) {
-        const day = weekday - startWeek;
-        if (day < 0) {
-            weekday = 7 -day - 1;
-        } else {
-            weekday = weekday - startWeek + 1
-        }
+    var day = weekday - startWeek;
+    if (day <= 0) {
+        day = 7 - day - 1;
     }
-    console.log('weekday:', this.getDay() , weekday, startWeek);
-    // 7 - startWeek + weekday; 
-    // 1 / 1;  0
-    // 1 / 2;  6
-    // 1 / 3;  5
-    // 1 / 4;  4
-    // 1 / 5;  3
-    // 1 / 6;  2
-    // 1 / 7;  1
-    this.setDate(this.getDate() - weekday + 1); //往前算（weekday-1）天
+    this.setDate(this.getDate() - day + 1); //往前算（weekday-1）天
     return this;
 };
 /**
- * 获取当周的最后一天
- */
+* 获取当周的最后一天
+*/
 Date.prototype.getCurrWeekLast = function () {
     var weekday = this.getDay() > 0 ? 7 - this.getDay() : 0;
-    this.setDate(this.getDate() + weekday);
+    var day = weekday + startWeek;
+    var cur = this.getDay() || 7;
+    if ((cur - startWeek) <= 0) {
+        day = weekday - (startWeek - cur) - 1;
+    }
+    this.setDate(this.getDate() + day);
     return this;
 };
 /**
- * 设置周历 (周开始、结束)
- * @param start 开始
- */
-Date.prototype.setWeekStartEnd = function (start) {
-    startWeek = start;
+* 设置周历 (周开始、结束)
+* @param start 开始
+*/
+Date.prototype.setWeekStart = function (start) {
+    startWeek = start - 1;
 };
-
-new Date().setWeekStartEnd(6);
-const result = new Date().getCurrWeekFirst().format();
-console.log('result:', result)
