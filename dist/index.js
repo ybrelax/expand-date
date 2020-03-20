@@ -1,6 +1,8 @@
 "use strict";
+var startWeek = 1; //开始周历
 /**
- * @param fmt  格式化类型
+ * 格式化类型
+ * @param fmt
  */
 Date.prototype.format = function (fmt) {
     if (fmt === void 0) { fmt = "yyyy-MM-dd"; }
@@ -71,6 +73,24 @@ Date.prototype.getLastMonthLast = function () {
  */
 Date.prototype.getCurrWeekFirst = function () {
     var weekday = this.getDay() || 7;
+   
+    if (startWeek === 1) {
+        const day = weekday - startWeek;
+        if (day < 0) {
+            weekday = 7 -day - 1;
+        } else {
+            weekday = weekday - startWeek + 1
+        }
+    }
+    console.log('weekday:', this.getDay() , weekday, startWeek);
+    // 7 - startWeek + weekday; 
+    // 1 / 1;  0
+    // 1 / 2;  6
+    // 1 / 3;  5
+    // 1 / 4;  4
+    // 1 / 5;  3
+    // 1 / 6;  2
+    // 1 / 7;  1
     this.setDate(this.getDate() - weekday + 1); //往前算（weekday-1）天
     return this;
 };
@@ -82,3 +102,14 @@ Date.prototype.getCurrWeekLast = function () {
     this.setDate(this.getDate() + weekday);
     return this;
 };
+/**
+ * 设置周历 (周开始、结束)
+ * @param start 开始
+ */
+Date.prototype.setWeekStartEnd = function (start) {
+    startWeek = start;
+};
+
+new Date().setWeekStartEnd(6);
+const result = new Date().getCurrWeekFirst().format();
+console.log('result:', result)

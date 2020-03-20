@@ -1,0 +1,58 @@
+Arguments: 
+  D:\software\node.exe C:\Users\DELL\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js build
+
+PATH: 
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\software\;D:\software\Git\cmd;C:\Users\DELL\AppData\Local\Microsoft\WindowsApps;;D:\software\Microsoft VS Code\bin;C:\Users\DELL\AppData\Roaming\npm
+
+Yarn version: 
+  1.21.1
+
+Node version: 
+  12.13.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: G:\project\personal\expand-date\package.json: Unexpected token < in JSON at position 29
+      at JSON.parse (<anonymous>)
+      at C:\Users\DELL\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\DELL\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\DELL\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "@ybrelax/date",
+  <<<<<<< HEAD
+    "version": "1.0.6",
+  =======
+    "version": "1.0.10",
+  >>>>>>> d9c59ac9e7f161c10a18ee42d758158579445b30
+    "description": "",
+    "main": "dist/index.js",
+    "scripts": {
+      "build": "tsc && mocha --reporter spec",
+      "test": "mocha --reporter spec"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/ybrelax/expand-date.git"
+    },
+    "author": "ybrelax",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/ybrelax/expand-date/issues"
+    },
+    "homepage": "https://github.com/ybrelax/expand-date#readme",
+    "devDependencies": {
+      "chai": "^4.2.0",
+      "mocha": "^7.1.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

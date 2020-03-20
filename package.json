@@ -1,10 +1,6 @@
 {
   "name": "@ybrelax/date",
-<<<<<<< HEAD
-  "version": "1.0.6",
-=======
   "version": "1.0.10",
->>>>>>> d9c59ac9e7f161c10a18ee42d758158579445b30
   "description": "",
   "main": "dist/index.js",
   "scripts": {

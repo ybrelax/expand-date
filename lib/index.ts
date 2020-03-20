@@ -7,10 +7,14 @@ interface Date {
   getCurrWeekLast: () => Date;
   getLastMonthFirst: () => Date;
   getLastMonthLast: () => Date;
+  setWeekStartEnd: (start: number) => void;
 }
 
+let startWeek = 1; //开始周历
+
 /**
- * @param fmt  格式化类型
+ * 格式化类型
+ * @param fmt  
  */
 Date.prototype.format = function(fmt = "yyyy-MM-dd") {
   var o: any = {
@@ -93,8 +97,19 @@ Date.prototype.getLastMonthLast = function() {
  * 获取当周的第一天
  */
 Date.prototype.getCurrWeekFirst = function() {
-  const weekday = this.getDay()||7;
-  this.setDate(this.getDate()-weekday+1);//往前算（weekday-1）天
+  let weekday = this.getDay() || 7;
+  weekday = weekday === 1 ? weekday : 7 - startWeek + weekday;
+  console.log('weekdayxxxxxxxxxx:', weekday)
+
+  // 7 - startWeek + weekday; 
+  // 1 / 1;  0
+  // 1 / 2;  6
+  // 1 / 3;  5
+  // 1 / 4;  4
+  // 1 / 5;  3
+  // 1 / 6;  2
+  // 1 / 7;  1
+  this.setDate(this.getDate()-weekday+1); //往前算（weekday-1）天
   return this;
 }
 
@@ -107,3 +122,10 @@ Date.prototype.getCurrWeekLast = function() {
   return this;
 }
 
+/**
+ * 设置周历 (周开始、结束)
+ * @param start 开始
+ */
+Date.prototype.setWeekStartEnd = function(start:number):void {
+    startWeek = start;
+}
