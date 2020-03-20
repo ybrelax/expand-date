@@ -119,7 +119,7 @@ Date.prototype.getCurrWeekLast = function () {
   return this;
 };
 /**
-* 设置周历 (周开始、结束)
+* 设置周历 (周开始) 1,2,3,4,5,6,7
 * @param start 开始
 */
 Date.prototype.setWeekStart = function (start) {
