@@ -91,16 +91,14 @@ Date.prototype.getLastMonthLast = function() {
   return new Date(new Date().getFullYear(), new Date().getMonth()-1, day);
 };
 
-
-
 /**
  * 获取当周的第一天
  */
 Date.prototype.getCurrWeekFirst = function () {
   var weekday = this.getDay() || 7;
-  let day = weekday - startWeek;
+  var day = weekday - startWeek;
   if (day <= 0) {
-      day = 7 - day -1;
+      day = 7 + day;
   }
   this.setDate(this.getDate() - day + 1); //往前算（weekday-1）天
   return this;
@@ -110,10 +108,10 @@ Date.prototype.getCurrWeekFirst = function () {
 */
 Date.prototype.getCurrWeekLast = function () {
   var weekday = this.getDay() > 0 ? 7 - this.getDay() : 0;
-  let day = weekday + startWeek;
-  const cur = this.getDay() ||7;
-  if(( cur - startWeek) <= 0) {
-      day =  weekday - (startWeek - cur) - 1;
+  var day = weekday + startWeek;
+  var cur = this.getDay() || 7;
+  if ((cur - startWeek) <= 0) {
+      day = (startWeek - cur);
   }
   this.setDate(this.getDate() + day);
   return this;

@@ -75,7 +75,7 @@ Date.prototype.getCurrWeekFirst = function () {
     var weekday = this.getDay() || 7;
     var day = weekday - startWeek;
     if (day <= 0) {
-        day = 7 - day - 1;
+        day = 7 + day;
     }
     this.setDate(this.getDate() - day + 1); //往前算（weekday-1）天
     return this;
@@ -88,13 +88,13 @@ Date.prototype.getCurrWeekLast = function () {
     var day = weekday + startWeek;
     var cur = this.getDay() || 7;
     if ((cur - startWeek) <= 0) {
-        day = weekday - (startWeek - cur) - 1;
+        day = (startWeek - cur);
     }
     this.setDate(this.getDate() + day);
     return this;
 };
 /**
-* 设置周历 (周开始、结束)
+* 设置周历 (周开始) 1,2,3,4,5,6,7
 * @param start 开始
 */
 Date.prototype.setWeekStart = function (start) {
