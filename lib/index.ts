@@ -10,7 +10,7 @@ interface Date {
   setWeekStart: (start: number) => void;
 }
 
-let startWeek = 1; //开始周历
+let startWeek = 0; //开始周历
 
 /**
  * 格式化类型
@@ -120,6 +120,6 @@ Date.prototype.getCurrWeekLast = function () {
 * 设置周历 (周开始) 1,2,3,4,5,6,7
 * @param start 开始
 */
-Date.prototype.setWeekStart = function (start) {
+Date.prototype.setWeekStart = function (start = 1) {
   startWeek = start - 1;
 };

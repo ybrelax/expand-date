@@ -1,5 +1,5 @@
 "use strict";
-var startWeek = 1; //开始周历
+var startWeek = 0; //开始周历
 /**
  * 格式化类型
  * @param fmt
@@ -98,5 +98,6 @@ Date.prototype.getCurrWeekLast = function () {
 * @param start 开始
 */
 Date.prototype.setWeekStart = function (start) {
+    if (start === void 0) { start = 1; }
     startWeek = start - 1;
 };
